@@ -1,3 +1,7 @@
+## From author
+
+This is an example project, developed on top of React.js library
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
