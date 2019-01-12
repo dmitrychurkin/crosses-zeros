@@ -1,6 +1,8 @@
 ## From author
 
-This is an example project, developed on top of React.js library
+This is an example project, developed on top of React.js library.
+
+Visit https://crosses-zeros.herokuapp.com/ to see it in action :)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
