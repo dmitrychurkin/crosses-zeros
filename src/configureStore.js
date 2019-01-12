@@ -1,7 +1,7 @@
-import { applyMiddleware, createStore, combineReducers } from 'redux';
+import { applyMiddleware, createStore, combineReducers, compose } from 'redux';
 import { reducer as formReducer } from 'redux-form';
 import thunkMiddleware from 'redux-thunk';
-import { composeWithDevTools } from 'redux-devtools-extension';
+// import { composeWithDevTools } from 'redux-devtools-extension';
 import * as reducers from './reducers';
 
 export default function configureStore(preloadedState) {
@@ -12,14 +12,14 @@ export default function configureStore(preloadedState) {
   const enhancers = [
     middlewareEnhancer
   ];
-  const composedEnhancers = composeWithDevTools(...enhancers);
+  const composedEnhancers = process.env.NODE_ENV === 'development' ? require('redux-devtools-extension').composeWithDevTools(...enhancers) : compose(...enhancers);
 
   const rootReducer = combineReducers({
     ...reducers,
     form: formReducer
   });
 
-  const store = createStore(rootReducer, undefined, composedEnhancers);
+  const store = createStore(rootReducer, preloadedState , composedEnhancers);
 
   if (process.env.NODE_ENV !== 'production' && module.hot) {
     module.hot.accept('./reducers', () => store.replaceReducer(rootReducer));

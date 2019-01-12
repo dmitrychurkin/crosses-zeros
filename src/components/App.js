@@ -9,12 +9,14 @@ import './App.css';
 const styles = {
   fullHeight: {
     minHeight: '100%',
+    minWidth: '533px',
     backgroundColor: 'rgb(250, 235, 215)'
   },
   center: {
     textAlign: 'center',
     minHeight: '600px',
-    padding: '10px'
+    padding: '10px',
+    minWidth: '533px'
   }
 };
 
@@ -27,7 +29,7 @@ const customTheme = createMuiTheme({
 
 
 const App = props => {
-  
+
   const { classes, match: { params: { url } } } = props;
 
   return (
