@@ -1,14 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Coiny');
-@keyframes wow {
-  from {
-    color: rgb(255, 49, 0);
-  }
-  to {
-    color: rgb(0, 255, 186);
-  }
-}
+
 html, body, #root {
   height: 100%;
+  user-select: none;
 }
 .App {
   text-align: center;
@@ -34,11 +28,51 @@ html, body, #root {
   color: #61dafb;
 }
 
+.weapon {
+  width: 130px;
+  height: 130px;
+}
+
+.line {
+  width: 100%;
+  height: 100%;
+}
+
+.weapon path, .line path {
+  fill: transparent;
+  stroke-width: 15px; 
+  stroke-dasharray: 500px;
+  stroke-dashoffset: 500px;
+  stroke-linecap: round;
+}
+
+.line path {
+  stroke-width: 30px;
+  stroke: green;
+  stroke-dasharray: 1000px;
+  stroke-dashoffset: 1000px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes wow {
+  from {
+    color: rgb(255, 49, 0);
+  }
+  to {
+    color: rgb(0, 255, 186);
+  }
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
   }
 }

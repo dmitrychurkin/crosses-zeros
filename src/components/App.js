@@ -1,10 +1,11 @@
 import React from 'react';
-import GamingFrame from '../containers/GamingFrame';
 import { withStyles, MuiThemeProvider, createMuiTheme } from '@material-ui/core';
 import blue from '@material-ui/core/colors/blue';
 import Grid from '@material-ui/core/Grid';
-// import logo from './logo.svg';
+import GamingFrame from '../containers/GamingFrame';
 import './App.css';
+
+const MIN_HEIGHT = `${600}px`;
 
 const styles = {
   fullHeight: {
@@ -14,7 +15,7 @@ const styles = {
   },
   center: {
     textAlign: 'center',
-    minHeight: '600px',
+    minHeight: MIN_HEIGHT,
     padding: '10px',
     minWidth: '533px'
   }
@@ -35,12 +36,14 @@ const App = props => {
   return (
     <MuiThemeProvider theme={customTheme}>
       <Grid className={classes.fullHeight} justify="center" container>
-        <Grid container className={classes.center} item xs={5}>
+        <Grid container style={{ minHeight: !url ? MIN_HEIGHT : 'unset' }} className={classes.center} item justify="center" xs={5}>
           <GamingFrame url={url} />
         </Grid>
       </Grid>
     </MuiThemeProvider>
   );
 };
+
+
 
 export default withStyles(styles)(App);
